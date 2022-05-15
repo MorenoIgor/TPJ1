@@ -30,6 +30,10 @@ this.vspeed = ct.actions.MoveY.value * this.velocidade;     //A variável vspeed
 //Esta função da engine move o objeto, tratando o grupo especificado como obstáculos, e contornando de acordo
 this.moveContinuousByAxes("solidos");       
 
+/*
+Este código cria uma variável temporária (var) e chama uma função que verifica colisão com um tipo de objeto ("coin")
+Em seguida o if() verifica se esse objeto existe, e se ele existir, marca-o para ser destruído no final deste frame
+*/
 var moeda = ct.place.meet(this,"coin");
 if (moeda) {
     moeda.kill = true;
