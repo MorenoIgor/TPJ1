@@ -36,7 +36,7 @@ if (moeda) {
 
 if (ct.actions.Atirar.pressed) {                    //Se usado, este código cria uma cópia do objeto "projetil" na posição do personagem
     ct.templates.copy("projetil",this.x,this.y,     //e ajusta a velocidade horizontal do projetil para 8
-    {
+    {                                               //Se o botão de atirar (espaço) acabou de ser pressionado
         hspeed: 8
     })
 }
