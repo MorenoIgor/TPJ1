@@ -27,16 +27,21 @@ this.velocidade = 5;        //Cria uma variável local chamada velocidade, para 
 this.hspeed = ct.actions.MoveX.value * this.velocidade;     //A variável hspeed controla a velocidade horizontal do objeto
 this.vspeed = ct.actions.MoveY.value * this.velocidade;     //A variável vspeed controla a velocidade vertical do objeto
 
-this.moveContinuousByAxes("solidos");       //Esta função da engine move o objeto, tratando o grupo especificado como obstáculos, e contornando de acordo
+//Esta função da engine move o objeto, tratando o grupo especificado como obstáculos, e contornando de acordo
+this.moveContinuousByAxes("solidos");       
 
 var moeda = ct.place.meet(this,"coin");
 if (moeda) {
     moeda.kill = true;
 }
 
-if (ct.actions.Atirar.pressed) {                    //Se usado, este código cria uma cópia do objeto "projetil" na posição do personagem
-    ct.templates.copy("projetil",this.x,this.y,     //e ajusta a velocidade horizontal do projetil para 8
-    {                                               //Se o botão de atirar (espaço) acabou de ser pressionado
+/*
+Se usado, este código cria uma cópia do objeto "projetil" na posição do personagem
+e ajusta a velocidade horizontal do projetil para 8 se o botão de atirar (espaço) acabou de ser pressionado
+*/
+if (ct.actions.Atirar.pressed) {                    
+    ct.templates.copy("projetil",this.x,this.y,
+    {                                               
         hspeed: 8
     })
 }
