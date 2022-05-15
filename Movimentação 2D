@@ -36,7 +36,8 @@ if (moeda) {
 }
 
 /*
-Se usado, este código cria uma cópia do objeto "projetil" na posição do personagem
+O código a seguir considera que a origem deste objeto é em seu centro
+Se usado, cria uma cópia do objeto "projetil" na posição do personagem
 e ajusta a velocidade horizontal do projetil para 8 se o botão de atirar (espaço) acabou de ser pressionado
 */
 if (ct.actions.Atirar.pressed) {                    
