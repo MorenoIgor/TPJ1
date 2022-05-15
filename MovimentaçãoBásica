@@ -1,0 +1,33 @@
+Movimentação Básica de um objeto na Ct.js
+--------
+Utiliza as Ações de Entrada para ler o input e movimentar o objeto colidindo com um grupo de colisão específico
+
+Assume:
+
+MoveX
+A - multiplicador -1
+D - multiplicador 1
+
+MoveY
+W - multiplicador -1
+S - multiplicador 1
+
+------------------
+No objeto a ser movido
+------------------
+
+//Ao Criar
+this.velocidade = 5;  //Cria uma variável local chamada velocidade, para usarmos depois
+
+//Passo
+this.hspeed = ct.actions.MoveX.value * this.velocidade;
+this.vspeed = ct.actions.MoveY.value * this.velocidade;
+
+this.moveContinuousByAxes("solidos");
+
+var moeda = ct.place.meet(this,"coin");
+if (moeda) {
+    moeda.kill = true;
+}
+
+-----------------
