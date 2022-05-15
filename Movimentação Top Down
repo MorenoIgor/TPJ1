@@ -20,10 +20,10 @@ No objeto a ser movido
 this.velocidade = 5;  //Cria uma variável local chamada velocidade, para usarmos depois
 
 //Passo
-this.hspeed = ct.actions.MoveX.value * this.velocidade;
-this.vspeed = ct.actions.MoveY.value * this.velocidade;
+this.hspeed = ct.actions.MoveX.value * this.velocidade;     //A variável hspeed controla a velocidade horizontal do objeto
+this.vspeed = ct.actions.MoveY.value * this.velocidade;     //A variável vspeed controla a velocidade vertical do objeto
 
-this.moveContinuousByAxes("solidos");
+this.moveContinuousByAxes("solidos");       //Esta função da engine move o objeto, tratando o grupo especificado como obstáculos, e contornando de acordo
 
 var moeda = ct.place.meet(this,"coin");
 if (moeda) {
