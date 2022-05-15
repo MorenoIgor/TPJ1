@@ -17,7 +17,8 @@ No objeto a ser movido
 ------------------
 
 //Ao Criar
-this.velocidade = 5;  //Cria uma variável local chamada velocidade, para usarmos depois
+this.velocidade = 5;        //Cria uma variável local chamada velocidade, para usarmos depois
+//ct.camera.follow = this;    //Se usar esta linha, a câmera do jogo vai seguir o objeto
 
 //Passo
 this.hspeed = ct.actions.MoveX.value * this.velocidade;     //A variável hspeed controla a velocidade horizontal do objeto
