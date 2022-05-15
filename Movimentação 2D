@@ -12,6 +12,9 @@ MoveY
 W - multiplicador -1
 S - multiplicador 1
 
+Atirar
+Space - multiplicador 1
+
 ------------------
 No objeto a ser movido
 ------------------
@@ -29,6 +32,13 @@ this.moveContinuousByAxes("solidos");       //Esta função da engine move o obj
 var moeda = ct.place.meet(this,"coin");
 if (moeda) {
     moeda.kill = true;
+}
+
+if (ct.actions.Atirar.pressed) {                    //Se usado, este código cria uma cópia do objeto "projetil" na posição do personagem
+    ct.templates.copy("projetil",this.x,this.y,     //e ajusta a velocidade horizontal do projetil para 8
+    {
+        hspeed: 8
+    })
 }
 
 -----------------
