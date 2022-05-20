@@ -2,3 +2,27 @@
 Este código incrementa a movimentação top-down e implementa controles de plataforma, usando gravidade e verificações de colisão
 */
 
+------------------
+No objeto a ser movido
+------------------
+
+//Ao Criar
+this.velocidade = 4;          //Cria uma variável de velocidade neste objeto
+ct.camera.follow = this;      //Faz a câmera do jogo seguir este objeto
+this.gravity = 0.5;           //Ajusta a gravidade para o valor 0.5 - experimente com outros valores!
+
+//Passo
+this.hspeed = ct.actions.MoveX.value * this.velocidade;     //A variável hspeed controla a velocidade horizontal do objeto
+//Não movemos o objeto na vertical pois isso é feito pela gravidade!
+
+this.moveContinuousByAxes("solidos");       //Move o objeto, com colisão com o grupo "solidos"
+
+var chao = ct.place.occupied(this,this.x,this.y+1,"solidos");   //Verifica se há uma colisão no "pé" do objeto, com o grupo  "solidos"
+
+if (chao) {             //Se a colisão acontecer, ajustar a velocidade vertical para 0 - é necessário para evitar problemas
+    this.vspeed = 0;
+}
+
+if (ct.actions.Pular.pressed && chao) {   //Se o botão de pular foi pressionado, ajustar a velocidade vertical - a gravidade faz o resto
+    this.vspeed = -15;
+}
