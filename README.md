@@ -2,6 +2,9 @@
 
 Changelog:
 
+29/05/22
+Adicionado código sobre movimentação de tanque
+
 20/05/22
 Adicionado código sobre movimentação plataforma
 
