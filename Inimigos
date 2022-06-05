@@ -1,0 +1,43 @@
+*************************
+Movimentação de inimigos na horizontal e vertical (com bate-e-volta) e seguidores do jogador
+
+
+
+*********
+Inimigo Horizontal
+*********
+
+//Ao Criar
+this.hspeed = 3;                        //Configurável para a velocidade e direção desejadas
+this.distanciaMaxima = 64;              //A distância máxima que ele vai andar
+this.distancia = this.distanciaMaxima;  //Quanto falta andar, ou seja, tudo!
+
+//Passo
+this.move();                            //Move o objeto
+ 
+this.distancia-=Math.abs(this.hspeed);  //Diminui a distância percorrida
+
+if (this.distancia<=0) {                //Se chegou ao destino
+    this.hspeed *= -1;                  //Inverte a velocidade
+    this.scale.x *= -1;                 //Inverte o sprite
+    this.distancia = this.distanciaMaxima * 2;  //Atualiza a distância para o dobro: ele tem que voltar ao ponto original e andar pro outro lado!
+}
+
+
+********
+Inimigo Vertical - adapte você mesmo! ;D
+********
+
+********
+Inimigo Seguidor
+********
+
+//Passo
+var jogador = ct.templates.list['jogador'][0];      //Encontra o jogador na tela
+
+this.direction = ct.u.pointDirection(this.x,this.y,jogador.x,jogador.y);  //Aponta a direção para o jogador
+this.angle = this.direction;  //Gira o sprite para a direção
+
+this.speed = 3; //Ajusta a direção
+
+this.move();  //Move o objeto
